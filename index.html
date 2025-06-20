@@ -76,6 +76,32 @@
 
 
 
+
+
+
+
+
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js"></script>
+  <script>
+     const timestamp = Date.now()
+    const publicKey = '6a2421eec9a6fa554c7e5b9967620440'
+    const privateKey = 'b14c668937680d45f06236f3da68b65a165324e6'
+    const hash = CryptoJS.MD5(timestamp + privateKey + publicKey).toString()
+    const url = `https://gateway.marvel.com/v1/public/characters?ts=${timestamp}&apikey=${publicKey}&hash=${hash}`
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+        const characters = data.data.results
+      })
+      .catch(error => console.error('Error fetching data:', error))
+  </script>
+    
+
+<script src="main.js"></script>
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
