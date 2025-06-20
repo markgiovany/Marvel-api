@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+.navbar-nav{
+    gap: 30px;
+   
+}
+
+.row img{
+    width: 100px;
+}
+
+.menu li a{
+    color: #ff0000;
+}
