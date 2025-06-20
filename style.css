@@ -17,3 +17,26 @@
 .menu li a{
     color: #ff0000;
 }
+
+.hero{
+    background-image: url(img/fondo_marvel.png);
+    width: 100%;
+   
+    height: 700px;
+    display: flex;
+    
+    justify-content: center;   
+}
+
+.hero h1{
+    color: aliceblue;
+}
+
+.heroDescripcion h1{
+    font-size: 70px;
+}
+
+.pozole{
+    margin: 200px;
+}
+
