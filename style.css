@@ -36,7 +36,39 @@
     font-size: 70px;
 }
 
-.pozole{
-    margin: 200px;
+.container{
+    width: 80%;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    gap: 30px;
 }
 
+
+.container img{
+    width: 40%;
+    height: 80%;
+}
+
+.container a{
+   color: black;
+   text-decoration: none;
+}
+
+.character_content {
+ color: white;
+}
+
+.character a{
+    text-decoration: none;
+    color: rgb(255, 238, 0);
+    font-weight: bold;
+    
+    font-size: 20px;
+    transition: all 0.5s ease;
+}
+
+.character a:hover{
+    color: rgb(38, 255, 0);
+}

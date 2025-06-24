@@ -61,24 +61,14 @@
             </div>
             
         </div>
-
-
-        <div class="pozole"></div>
-
-
-
         
-        <div class="container">
-            <div class="row" id="marvel-row">
-                
-            </div>
+
+
+        <div class="jumbotron jumbotron-fluid">
+          <section class="container" id="marvel-row">
+              
+          </section>
         </div>
-
-
-
-
-
-
 
 
 
@@ -86,7 +76,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/core.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js"></script>
   <script>
-     const timestamp = Date.now()
+    const timestamp = Date.now()
     const publicKey = '6a2421eec9a6fa554c7e5b9967620440'
     const privateKey = 'b14c668937680d45f06236f3da68b65a165324e6'
     const hash = CryptoJS.MD5(timestamp + privateKey + publicKey).toString()
