@@ -91,3 +91,27 @@
    background-color: rgba(182, 10, 10, 0.825);
    border-radius: 20px;
 }
+
+.search-box {
+    position: relative;
+}
+
+.search-box input{
+    padding: 4px;
+    padding-right: 35px;
+    border-radius: 8px;
+    border: 2px solid black;
+    outline: none;
+}
+
+.search-box button{
+    padding-top:3px ;
+    background-color: rgb(244, 23, 23);
+   
+}
+
+.search-box button img{
+    
+    width: 27px;
+    height: 27px;
+}
