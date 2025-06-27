@@ -117,3 +117,39 @@
     width: 27px;
     height: 27px;
 }
+
+#pagination {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  #pagination a {
+    padding: 6px 12px;
+    text-decoration: none;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: background 0.2s;
+    font-size: 14px;
+  }
+
+  #pagination a:hover {
+    background: #ff0000;
+    color: white;
+  }
+
+  #pagination a {
+    background-color: #ffffff;
+    font-weight: bold;
+    border-color: #ff0000;
+  }
+
+  @media (max-width: 880px) {
+    #pagination a {
+      font-size: 12px;
+      padding: 4px 8px;
+    }
+  }
