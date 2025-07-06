@@ -3,100 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marvel Api</title>
+    <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
-
 </head>
-<body class="back-ground">
-   
-    <div class="container-fluid bg-body-tertiary">
-        <div class="row">
-          <div class="col-sm-9">
-            <nav class="navbar navbar-expand-lg">
-            <img src="img/Marvel_Logo.svg.png" alt="">
-              <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarNav"aria-controls="navbarNav"aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNav">
+<body class="body-back">
 
-                <div class="collapse navbar-collapse" id="navbarNav">
-                <ul
-                  class="navbar-nav justify-content-center flex-grow-1 pe-3 text-orange menu"
-                >
-                  <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="index.html">Home</a>
-                  </li>
-  
-                  <li class="nav-item">
-                    <a class="nav-link" aria-current="page"  href="https://developer.marvel.com" >Docs  </a>
-               
-                
-              </div>
-            </nav>
-          </div>
-          <div class="col-sm-3">
-            <nav class="navbar bg-body-tertiary">
-  <div class="search-box">
-    <input type="text" id="searchInput" placeholder="Buscar personaje Marvel..." />
-    <button id="searchBtn"><img src="img/klipartz.com.png" alt=""></button>
-  </div>
-  </div>
-    </form>
-  </div>
-</nav>
-          </div>
-        </div>
-      </div>
 
-</div>
-</nav>
-
-<div class="hero">
-            <div class="heroDescripcion">
-              <h1>Marvel API</h1>
-            </div>
-            
-        </div>
-
-        <div class="space"></div>
-        
 
 
         <div class="jumbotron jumbotron-fluid">
-          <section class="container" id="marvel-row">
+          <section class="container" id="dragon-row">
               
           </section>
         </div>
+
         
-        <div id="pagination"></div>
+
+
+       
 
 
 
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/core.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js"></script>
-  <script>
-    const timestamp = Date.now()
-    const publicKey = '6a2421eec9a6fa554c7e5b9967620440'
-    const privateKey = 'b14c668937680d45f06236f3da68b65a165324e6'
-    const hash = CryptoJS.MD5(timestamp + privateKey + publicKey).toString()
-    const url = `https://gateway.marvel.com/v1/public/characters?ts=${timestamp}&apikey=${publicKey}&hash=${hash}`
-    fetch(url)
-      .then(response => response.json())
-      .then(data => {
-        console.log(data)
-        const characters = data.data.results
-      })
-      .catch(error => console.error('Error fetching data:', error))
-  </script>
-    
+  
 
 <script src="main.js"></script>
+    
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>

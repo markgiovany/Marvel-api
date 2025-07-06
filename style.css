@@ -1,155 +1,68 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     
 }
-
-.navbar-nav{
-    gap: 30px;
    
-}
-
-.row img{
-    width: 100px;
-}
-
-.menu li a{
-    color: #ff0000;
-}
-
-.hero{
-    background-image: url(img/fondo_marvel.png);
-    width: 100%;
-   
-    height: 700px;
-    display: flex;
-    
-    justify-content: center;   
-}
-
-.hero h1{
-    color: aliceblue;
-}
-
-.heroDescripcion h1{
-    font-size: 70px;
-}
-
-.back-ground{
-    font-family: 'Roboto Condensed', sans-serif;
-    background-color: rgb(0, 0, 0);
-}
-
-.space{
-    height: 100px;
+.body-back{
+    background-color:#161616 ;
 }
 
 .container{
-    width: 80%;
+
+    width: 100%; 
     max-width: 1100px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(2, 2fr);
-    gap: 30px;
-}
-
-
-.container img{
-    width: 50%;
-    height: 100%;
-    border-radius: 3%;
-}
-
-.container a{
-   color: black;
-   text-decoration: none;
-}
-
-.character_content {
- color: rgb(255, 255, 255);
- max-width: 1100px;
- 
-}
-
-.character a{
-    text-decoration: none;
-    color: rgb(147, 87, 212);
-    font-weight: bold;
-     max-width: 1100px;
-    font-size: 30px;
-    transition: all 0.5s ease;
-}
-
-.character a:hover{
-    color: rgb(38, 255, 0);
-}
-
-.character{
     display: flex;
-    gap: 15px;
-   background-color: rgba(182, 10, 10, 0.825);
-   border-radius: 20px;
-}
-
-.search-box {
-    position: relative;
-}
-
-.search-box input{
-    padding: 4px;
-    padding-right: 35px;
-    border-radius: 8px;
-    border: 2px solid black;
-    outline: none;
-}
-
-.search-box button{
-    padding-top:3px ;
-    background-color: rgb(244, 23, 23);
-   
-}
-
-.search-box button img{
+    justify-content: center;   
+    flex-wrap: wrap;           
+    gap: 50px;
+   padding: 200px;
     
-    width: 27px;
-    height: 27px;
 }
 
-#pagination {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    justify-content: center;
-    margin-top: 20px;
-  }
 
-  #pagination a {
-    padding: 6px 12px;
-    text-decoration: none;
-    color: #333;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    transition: background 0.2s;
-    font-size: 14px;
-  }
 
-  #pagination a:hover {
-    background: #ff0000;
-    color: white;
-  }
+.character {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 200px;
+  height: 700px;
+  transition: 0.2s ease;
+}
 
-  #pagination a {
-    background-color: #ffffff;
-    font-weight: bold;
-    border-color: #ff0000;
-  }
+.character:hover {
+  transform: scale(1.05);
+}
 
-  @media (max-width: 880px) {
-    #pagination a {
-      font-size: 12px;
-      padding: 4px 8px;
-    }
-  }
+.character img {
+  width: 100%;
+  height: 60%;
+  border-radius: 8px;
+  
+}
+
+.character h2 {
+color: white;
+  
+}
+
+.character h6 {
+  color: #ffffff;
+  
+}
+
+.character p {
+  color: #f4cb01;
+  
+}
+
+.character_content{
+    background-color: #414141;
+    padding: 2px;
+    width: 100%;
+    height: 41%;
+    border-radius: 0px 0px  15px 15px;
+}
