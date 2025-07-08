@@ -22,6 +22,21 @@
     
 }
 
+.hero-image {
+  max-width: 300%; 
+    height: auto;
+    display: block; 
+    margin: 0 auto; 
+    max-height: 500px;
+    object-fit: contain; 
+}
+   .hero-section .container {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    min-height: 1000px; 
+}
+
 
 
 .character {
