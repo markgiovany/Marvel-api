@@ -66,3 +66,26 @@ color: white;
     height: 41%;
     border-radius: 0px 0px  15px 15px;
 }
+
+#pagination {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    #pagination a {
+      display: inline-block;
+      margin: 0 5px;
+      padding: 8px 12px;
+      text-decoration: none;
+      color: #333;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #fff;
+      transition: background-color 0.2s, color 0.2s;
+    }
+
+    #pagination a:hover {
+      background-color: #000000;
+      color: white;
+      
+    }
