@@ -1,12 +1,41 @@
 * {
+    font-size: "Bitcount Grid Double", system-ui;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     
 }
-   
+    /* 
+   background-image: url(fondomarvelv8.avif);
+    background-position: center, center;
+    background-repeat: no-repeat;
+    background-size: cover;
+     */
+  body{
+  font-family: "Bitcount Grid Double", system-ui;
+  font-optical-sizing: auto;
+  font-style: normal;
+
+}
 .body-back{
     background-color:#161616 ;
+}
+/* Cambios en el logo */
+.hero-section .hero-image {
+    max-height: 300px; 
+    width: auto;
+    object-fit: contain;
+    margin-top: 40px; 
+    margin-bottom: 40px; 
+}
+
+/* Reducir espacio en el hero */
+.hero-section {
+    padding-top: 1.5rem !important; 
+    padding-bottom: 1.5rem !important; 
+    justify-content: center;
+    align-items: center;
+    
 }
 
 .container{
@@ -17,69 +46,81 @@
     display: flex;
     justify-content: center;   
     flex-wrap: wrap;           
-    gap: 50px;
-   padding: 200px;
+    gap: 100px;
+   padding: 50px;
     
-}
-
-.hero-image {
-  max-width: 300%; 
-    height: auto;
-    display: block; 
-    margin: 0 auto; 
-    max-height: 500px;
-    object-fit: contain; 
-}
-   .hero-section .container {
-    display: flex;
-    justify-content: center; 
-    align-items: center; 
-    min-height: 1000px; 
 }
 
 
 
 .character {
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;;
+  border-radius: 22px;
+  box-shadow: 0 4px 8px rgba(68, 38, 240, 0.2);
   width: 200px;
   height: 700px;
-  transition: 0.2s ease;
+   transition: transform 0.2s ease, box-shadow 0.2s ease;
+   
 }
 
 .character:hover {
   transform: scale(1.05);
+   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
 }
 
 .character img {
   width: 100%;
   height: 60%;
-  border-radius: 8px;
+  border-radius: 8px 8px 0 0;
+  overflow: hidden; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
   
 }
-
+.body-per{
+background-color: #866666;
+}
+.character--information{
+  background-color: #000000;
+}
+.character-image-area img {
+    width: 100px;   
+    height: 100%; 
+    object-fit: contain; 
+    border-radius: 8px 8px 0 0; 
+    transition: transform 0.3s ease; 
+}
 .character h2 {
 color: white;
-  
+margin-top: 10px; 
+margin-bottom: 5px;
+height: 28%;
+font-size: 25px;
 }
 
 .character h6 {
   color: #ffffff;
-  
+  margin-bottom: 3px;
 }
 
 .character p {
   color: #f4cb01;
-  
+   display: inline; 
+   margin-left: 5px; 
 }
 
 .character_content{
-    background-color: #414141;
-    padding: 2px;
+    background-color: #414141; 
+    padding: 15px; 
     width: 100%;
-    height: 41%;
-    border-radius: 0px 0px  15px 15px;
+    height: 40%; 
+    border-radius: 0px 0px 15px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
 }
 
 .imagen img{
