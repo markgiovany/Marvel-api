@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
 * {
     font-size: "Bitcount Grid Double", system-ui;
     margin: 0;
@@ -19,6 +21,7 @@
 }
 .body-back{
     background-color:#161616 ;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 .hero-section .hero-image {
@@ -81,6 +84,7 @@
 }
 .body-per{
 background-color: #866666;
+font-family: 'Roboto Condensed', sans-serif;
 }
 .character--information{
   background-color: #000000;
