@@ -5,15 +5,13 @@ const dragonBall = {
   searchQuery: '',
   selectedRace: '',
   selectedGender: '',
-  selectedAffiliation: '',
 
   renderCharacters: function () {
     let urlAPI = `https://dragonball-api.com/api/characters?page=${this.currentPage}&limit=${this.limit}`;
-
+    
     if (this.searchQuery) urlAPI += `&name=${encodeURIComponent(this.searchQuery)}`;
     if (this.selectedRace) urlAPI += `&race=${encodeURIComponent(this.selectedRace)}`;
     if (this.selectedGender) urlAPI += `&gender=${encodeURIComponent(this.selectedGender)}`;
-    if (this.selectedAffiliation) urlAPI += `&affiliation=${encodeURIComponent(this.selectedAffiliation)}`;
 
     const container = document.querySelector('#dragon-row');
     let contentHTML = '';
@@ -119,19 +117,16 @@ const dragonBall = {
   setupFilters: function () {
     const raceSelect = document.querySelector('#filter-race');
     const genderSelect = document.querySelector('#filter-gender');
-    const affiliationSelect = document.querySelector('#filter-affiliation');
 
     const handleFilterChange = () => {
       this.selectedRace = raceSelect.value;
       this.selectedGender = genderSelect.value;
-      this.selectedAffiliation = affiliationSelect.value;
       this.currentPage = 1;
       this.renderCharacters();
     };
 
     raceSelect.addEventListener('change', handleFilterChange);
     genderSelect.addEventListener('change', handleFilterChange);
-    affiliationSelect.addEventListener('change', handleFilterChange);
   }
 };
 
