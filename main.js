@@ -2,106 +2,131 @@ const dragonBall = {
   currentPage: 1,
   limit: 10,
   totalPages: 6,
-  allCharacters: [],
-
-  fetchAllCharacters: async function () {
-   
-    const todos = [];
-    for (let i = 1; i <= this.totalPages; i++) {
-      const res = await fetch(`https://dragonball-api.com/api/characters?page=${i}&limit=${this.limit}`);
-      const data = await res.json();
-      const items = data.items || data;
-      for (let c of items) {
-        todos.push(c);
-      }
-    }
-    this.allCharacters = todos;
-  },
+  searchQuery: '',
+  selectedRace: '',
+  selectedGender: '',
 
   renderCharacters: function () {
-    const contenedor = document.querySelector('#dragon-row');
-    const busqueda = document.querySelector('#search-input').value.toLowerCase();
-    let html = '';
+    let urlAPI = `https://dragonball-api.com/api/characters?page=${this.currentPage}&limit=${this.limit}`;
+    
+    if (this.searchQuery) urlAPI += `&name=${encodeURIComponent(this.searchQuery)}`;
+    if (this.selectedRace) urlAPI += `&race=${encodeURIComponent(this.selectedRace)}`;
+    if (this.selectedGender) urlAPI += `&gender=${encodeURIComponent(this.selectedGender)}`;
 
-    if (busqueda === '') {
-      
-      fetch(`https://dragonball-api.com/api/characters?page=${this.currentPage}&limit=${this.limit}`)
-        .then(res => res.json())
-        .then(data => {
-          const chars = data.items || data;
-          for (let personaje of chars) {
-            html += `
-              <div class="character">
-                <a href="#?id=${personaje.id}"><img src="${personaje.image}" alt="${personaje.name}"></a>
-                <div class="character_content">
-                  <h2>${personaje.name}</h2>
-                  <h6>${personaje.race} - ${personaje.gender}</h6>
-                  <h6>Ki base: <p>${personaje.ki}</p></h6>
-                  <h6>Ki total: <p>${personaje.maxKi}</p></h6>
-                  <h6>Afiliación: <p>${personaje.affiliation}</p></h6>
-                </div>
+    const container = document.querySelector('#dragon-row');
+    let contentHTML = '';
+
+    fetch(urlAPI)
+      .then(res => res.json())
+      .then(json => {
+        const characters = json.items || json;
+
+        if (!characters.length) {
+          container.innerHTML = '<p>No se encontraron personajes.</p>';
+          return;
+        }
+
+        characters.forEach(character => {
+          contentHTML += `
+            <div class="character">
+              <a href="personajes.html?id=${character.id}">
+                <img src="${character.image}" alt="${character.name}">
+              </a>
+              <div class="character_content">
+                <h2>${character.name}</h2> 
+                <h6>${character.race} - ${character.gender}</h6>
+                <h6>Ki base: <p>${character.ki}</p></h6>
+                <h6>Ki total: <p>${character.maxKi}</p></h6>
+                <h6>Afiliación: <p>${character.affiliation}</p></h6>
               </div>
-            `;
-          }
-          contenedor.innerHTML = html;
-          this.renderPagination();
-        });
-    } else {
-      
-      const filtrados = this.allCharacters.filter(personaje =>
-        personaje.name.toLowerCase().includes(busqueda)
-      );
-      for (let p of filtrados) {
-        html += `
-          <div class="character">
-            <a href="#?id=${p.id}"><img src="${p.image}" alt="${p.name}"></a>
-            <div class="character_content">
-              <h2>${p.name}</h2>
-              <h6>${p.race} - ${p.gender}</h6>
-              <h6>Ki base: <p>${p.ki}</p></h6>
-              <h6>Ki total: <p>${p.maxKi}</p></h6>
-              <h6>Afiliación: <p>${p.affiliation}</p></h6>
             </div>
-          </div>
-        `;
-      }
-      contenedor.innerHTML = filtrados.length > 0 ? html : '<p>No se encontraron personajes.</p>';
-     
-      document.querySelector('#pagination').innerHTML = '';
-    }
+          `;
+        });
+
+        container.innerHTML = contentHTML;
+        this.renderPagination();
+      });
   },
 
   renderPagination: function () {
-    const paginacion = document.querySelector('#pagination');
-    let paginasHTML = '';
+    const paginationContainer = document.querySelector('#pagination');
+    let pagesHTML = '';
 
     for (let i = 1; i <= this.totalPages; i++) {
-      const active = i === this.currentPage ? 'active' : '';
-      paginasHTML += `<a href="#" class="${active}" data-page="${i}">${i}</a> `;
+      const activeClass = i === this.currentPage ? 'active' : '';
+      pagesHTML += `<a href="#" class="${activeClass}" data-page="${i}">${i}</a>`;
     }
-    paginacion.innerHTML = paginasHTML;
 
-    const enlaces = document.querySelectorAll('#pagination a');
-    for (let enlace of enlaces) {
-      enlace.addEventListener('click', (e) => {
+    paginationContainer.innerHTML = pagesHTML;
+
+    document.querySelectorAll('#pagination a').forEach(link => {
+      link.addEventListener('click', (e) => {
         e.preventDefault();
         this.currentPage = parseInt(e.target.getAttribute('data-page'));
         this.renderCharacters();
       });
-    }
+    });
   },
 
-  init: async function () {
-   
-    await this.fetchAllCharacters();
+  renderPlanets: function () {
+    const planetsContainer = document.querySelector('#planets');
+    if (!planetsContainer) return;
+    let contentHTML = '';
 
-    
+    fetch('https://dragonball-api.com/api/planets')
+      .then(res => res.json())
+      .then(planets => {
+        planets.forEach(planet => {
+          contentHTML += `
+            <div class="planet">
+              <h3>${planet.name}</h3>
+              <p>Descripción: ${planet.description}</p>
+              <p>Región: ${planet.region}</p>
+            </div>
+          `;
+        });
+
+        planetsContainer.innerHTML = contentHTML;
+      });
+  },
+
+  init: function () {
+    this.setupSearch();
+    this.setupFilters();
     this.renderCharacters();
+    this.renderPlanets();
+  },
 
-    
-    document.querySelector('#search-input').addEventListener('input', () => {
+  setupSearch: function () {
+    const input = document.querySelector('#search-input');
+    const button = document.querySelector('#search-btn');
+
+    button.addEventListener('click', () => {
+      this.searchQuery = input.value.trim();
+      this.currentPage = 1;
       this.renderCharacters();
     });
+
+    input.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        button.click();
+      }
+    });
+  },
+
+  setupFilters: function () {
+    const raceSelect = document.querySelector('#filter-race');
+    const genderSelect = document.querySelector('#filter-gender');
+
+    const handleFilterChange = () => {
+      this.selectedRace = raceSelect.value;
+      this.selectedGender = genderSelect.value;
+      this.currentPage = 1;
+      this.renderCharacters();
+    };
+
+    raceSelect.addEventListener('change', handleFilterChange);
+    genderSelect.addEventListener('change', handleFilterChange);
   }
 };
 
