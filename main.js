@@ -29,7 +29,7 @@ const dragonBall = {
         characters.forEach(character => {
           contentHTML += `
             <div class="character">
-              <a href="personajes.html?id=${character.id}">
+              <a href="/personajes.html?id=${character.id}">
                 <img src="${character.image}" alt="${character.name}">
               </a>
               <div class="character_content">
